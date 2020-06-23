@@ -1,9 +1,17 @@
 // Import io.file for handling files
 import java.io.File;
+
  // Import this class to handle errors
 import java.io.FileNotFoundException;
+
 // Import the Scanner class to read text files
 import java.util.Scanner;
+
+// Import the FileWriter class
+import java.io.FileWriter;
+
+// Import the IOException class to handle errors
+import java.io.IOException;
 
 public class FileHandling{
 
@@ -21,6 +29,7 @@ public class FileHandling{
     // 2. Character Stream
     // In this script, we are working with Char Streams
 
+    /*** 1.Example of read a file ***/
     try{
       // Create Object to File
       File fp = new File(Filename);
@@ -48,8 +57,32 @@ public class FileHandling{
 
     }catch(FileNotFoundException error){
       System.out.println("File doesn't exist");
-
     }
+
+    /*** 2.Example of write a file ***/
+    String FilenameToWrite = "MyFirstWrittenFile.txt";
+
+    try{
+      // Create Object to File
+      File fp_2 = new File(FilenameToWrite);
+
+      // Create Object to FileWriter
+      FileWriter fp_w = new FileWriter(fp_2);
+
+      // Write in import junit.framework.TestCase;
+      fp_w.write("Este es mi primer texto. Guay! \n");
+
+      // Flush the file Stream
+      fp_w.flush();
+
+      // Close import junit.framework.TestCase;
+      fp_w.close();
+      
+    }catch(IOException exp){
+      System.out.println("Some error writing files");
+    }
+
+
 
 
 
